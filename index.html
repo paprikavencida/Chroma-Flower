@@ -1,17 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Chroma Flower — um ecossistema independente de tecnologia criativa, música, design e experimentação digital."
+  >
+
+  <meta name="theme-color" content="#111210">
+
   <title>Chroma Flower</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+  <!-- Header -->
+  <header class="header">
+    <nav class="header-nav" aria-label="Navegação principal">
+
+      <a href="index.html" aria-current="page">home</a>
+      <a href="pages/about.html">about</a>
+      <a href="pages/team.html">team</a>
+      <a href="pages/projects.html">projects</a>
+      <a href="pages/contact.html">contact</a>
+
+    </nav>
+  </header>
+
   <main>
-    <h1>Chroma Flower</h1>
-    <p>Creative Technology & Media.</p>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <p class="eyebrow">
+        INDEPENDENT CREATIVE ECOSYSTEM
+      </p>
+
+      <h1 id="hero-title">
+        Chroma Flower<span class="accent">.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Creative Technology & Media.
+      </p>
+
+      <p class="hero-description">
+        Um ecossistema independente dedicado à criação de projetos,
+        ferramentas e experiências que conectam tecnologia, arte e música.
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="button button-primary" href="pages/projects.html">
+          explore projects <span aria-hidden="true">↗</span>
+        </a>
+
+        <a class="button button-secondary" href="pages/about.html">
+          about us
+        </a>
+
+      </div>
+
+      <p class="hero-index">
+        CF / 001 — GROWING INDEPENDENTLY
+      </p>
+
+    </section>
+
+
+    <!-- Featured projects -->
+    <section class="projects-section" aria-labelledby="projects-title">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">WHAT WE CREATE</p>
+          <h2 id="projects-title">Explore the ecosystem<span class="accent">.</span></h2>
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- Records -->
+        <article class="project-card">
+
+          <p class="project-number">01 / MUSIC</p>
+
+          <h3>Records</h3>
+
+          <p>
+            Um espaço dedicado à música, aos lançamentos e à exploração sonora.
+          </p>
+
+          <a href="pages/records.html" class="project-link">
+            explore records ↗
+          </a>
+
+        </article>
+
+
+        <!-- Community -->
+        <article class="project-card">
+
+          <p class="project-number">02 / COMMUNITY</p>
+
+          <h3>Comunidade</h3>
+
+          <p>
+            Um espaço para pessoas interessadas em acompanhar, compartilhar
+            ideias e participar do ecossistema Chroma Flower.
+          </p>
+
+          <a href="pages/community.html" class="project-link">
+            meet the community ↗
+          </a>
+
+        </article>
+
+
+        <!-- Warped Blossom -->
+        <article class="project-card">
+
+          <p class="project-number">03 / EXPERIMENTAL</p>
+
+          <h3>Warped Blossom</h3>
+
+          <p>
+            Um espaço para experimentação, ideias incomuns e novas
+            possibilidades criativas.
+          </p>
+
+          <a href="pages/warped-blossom.html" class="project-link">
+            discover more ↗
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- Chroma Flower Radio -->
+    <section class="radio-section" id="radio" aria-labelledby="radio-title">
+
+      <div class="radio-info">
+
+        <p class="eyebrow">NOW TUNING IN</p>
+
+        <h2 id="radio-title">
+          Chroma Flower Radio<span class="accent">.</span>
+        </h2>
+
+        <p>
+          Uma seleção musical para acompanhar o processo criativo.
+          Sons, referências e descobertas reunidos em um só lugar.
+        </p>
+
+        <p class="radio-status">
+          <span class="status-indicator" aria-hidden="true"></span>
+          CHROMA FREQUENCY / 001
+        </p>
+
+      </div>
+
+      <div class="radio-player">
+
+        <iframe
+          title="Playlist Chroma Flower Radio no Spotify"
+          src="https://open.spotify.com/embed/playlist/3YrA1XNUunXgZPI41NDN0v?utm_source=generator"
+          width="100%"
+          height="352"
+          style="border: 0; border-radius: 12px;"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+    </section>
+
+
+    <!-- Closing statement -->
+    <section class="closing-section">
+
+      <p class="eyebrow">ALWAYS IN PROGRESS</p>
+
+      <h2>
+        Ideas grow into things<span class="accent">.</span>
+      </h2>
+
+      <p>
+        Um ecossistema em constante evolução. Mais projetos, mais
+        experimentos e novas formas de criar.
+      </p>
+
+      <a class="text-link" href="pages/contact.html">
+        get in touch ↗
+      </a>
+
+    </section>
+
   </main>
 
+  <footer class="footer">
+
+    <a class="footer-brand" href="index.html">
+      CHROMA FLOWER<span class="accent">.</span>
+    </a>
+
+    <p>Independent by nature. Creative by design.</p>
+
+    <p class="footer-copy">
+      © 2026 Chroma Flower. All rights reserved.
+    </p>
+
+  </footer>
+
+
   <script src="js/main.js"></script>
+
 </body>
+</html>

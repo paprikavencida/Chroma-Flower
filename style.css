@@ -1,18 +1,790 @@
+
+:root {
+  color-scheme: light;
+
+  /* Brand palette */
+  --bg: #EFE6DE;
+  --surface: #F8F2EA;
+  --surface-hover: #F2D98D;
+
+  --yellow: #FFCA39;
+  --orange: #FFAF59;
+  --olive: #A5B04B;
+  --soft-yellow: #F2D98D;
+  --petal: #EFE6DE;
+
+  /* Typography */
+  --text: #352A18;
+  --muted: #62564B;
+  --subtle: #7A6D5E;
+
+  /* Interface */
+  --border: #D9CFC4;
+  --border-strong: #B9AA95;
+
+  /* Layout */
+  --container: 1100px;
+  --page-padding: 28px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Motion */
+  --transition: 180ms ease;
+}
+
+
+/* 02. Reset and base */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
-    background-color: #EFE6DE;
-    color: #1F1F1F;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
+  min-width: 320px;
+  margin: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 85% 8%,
+      rgba(255, 202, 57, 0.09),
+      transparent 32%
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-h1 {
-    font-size: 40px;
+::selection {
+  background: var(--yellow);
+  color: var(--text);
 }
 
-button {
-    background-color: #FFCC00;
-    border: 1px solid #1F1F1F;
-    padding: 10px 20px;
-    cursor: pointer;
+img,
+svg,
+iframe {
+  max-width: 100%;
 }
+
+img {
+  display: block;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--olive);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.accent {
+  color: #B18313;
+}
+
+
+/* 03. Header and navigation */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(53, 42, 24, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: none;
+}
+
+.header-nav {
+  width: min(100%, var(--container));
+  min-height: 72px;
+
+  margin-inline: auto;
+  padding: 12px var(--page-padding);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+}
+
+.header-nav a {
+  position: relative;
+
+  padding: 7px 0;
+
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+
+  transition: color var(--transition);
+}
+
+.header-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--olive);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform var(--transition);
+}
+
+.header-nav a:hover,
+.header-nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+.header-nav a:hover::after,
+.header-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.header-nav a {
+  color: #EFE6DE;
+  transition: color 180ms ease;
+}
+
+.header-nav a:hover,
+.header-nav a[aria-current="page"] {
+  color: #FFCA39;
+}
+
+
+/* 04. Main layout */
+
+main {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+
+  color: #747B30;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+
+/* 05. Hero */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  padding: 120px 0 90px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 14px 0 18px;
+
+  font-size: clamp(44px, 8vw, 88px);
+  font-weight: 750;
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+}
+
+.hero-subtitle {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+  font-family: monospace;
+  font-size: clamp(14px, 2vw, 17px);
+}
+
+.hero-description {
+  max-width: 570px;
+  margin-bottom: 0;
+
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.hero-index {
+  margin: 54px 0 0;
+
+  color: var(--subtle);
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+}
+
+
+/* 06. Buttons */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 46px;
+  padding: 11px 19px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.button-primary {
+  background: var(--yellow);
+  color: var(--text);
+  border-color: var(--yellow);
+}
+
+.button-primary:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.button-secondary:hover {
+  background: var(--surface);
+  border-color: var(--olive);
+  transform: translateY(-2px);
+}
+
+
+/* 07. Section headings */
+
+.projects-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 32px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-heading h2,
+.radio-info h2,
+.closing-section h2 {
+  margin: 0;
+
+  font-size: clamp(27px, 4vw, 39px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+
+/* 08. Project cards */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.project-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: 260px;
+  padding: 25px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.project-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--olive);
+
+  box-shadow: 0 12px 28px rgba(53, 42, 24, 0.06);
+
+  transform: translateY(-4px);
+}
+
+.project-number {
+  margin-bottom: 24px;
+
+  color: #747B30;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.project-card > p:not(.project-number) {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+  padding-top: 12px;
+
+  color: #626C27;
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    color var(--transition),
+    gap var(--transition);
+}
+
+.project-link:hover {
+  color: #815019;
+  gap: 11px;
+}
+
+
+/* 09. Text links */
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #626C27;
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    color var(--transition),
+    gap var(--transition);
+}
+
+.text-link:hover {
+  color: #815019;
+  gap: 12px;
+}
+
+
+/* 10. Chroma Flower Radio */
+
+.radio-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 48px;
+
+  padding: 80px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.radio-info .eyebrow {
+  margin-bottom: 12px;
+}
+
+.radio-info h2 {
+  max-width: 400px;
+}
+
+.radio-info > p:not(.eyebrow, .radio-status) {
+  max-width: 390px;
+  margin-top: 18px;
+  margin-bottom: 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.radio-player {
+  min-width: 0;
+  overflow: hidden;
+
+  padding: 8px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.radio-player iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.radio-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  margin-top: 28px;
+  margin-bottom: 0;
+
+  color: var(--subtle);
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+
+  background: var(--olive);
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 4px rgba(165, 176, 75, 0.16);
+}
+
+
+/* 11. Closing section */
+
+.closing-section {
+  position: relative;
+
+  padding: 95px 16px;
+  text-align: center;
+}
+
+.closing-section .eyebrow {
+  margin-bottom: 14px;
+}
+
+.closing-section h2 {
+  max-width: 750px;
+  margin-inline: auto;
+
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.closing-section > p:not(.eyebrow) {
+  max-width: 480px;
+  margin: 20px auto 28px;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+/* 12. Footer */
+
+.footer {
+  padding: 32px var(--page-padding);
+
+  background: rgba(248, 242, 234, 0.65);
+  border-top: 1px solid var(--border);
+
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.footer p {
+  margin: 8px 0 0;
+
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.footer-copy {
+  margin-top: 22px !important;
+  color: var(--subtle) !important;
+}
+
+
+/* 13. Tablet */
+
+@media (max-width: 900px) {
+  :root {
+    --page-padding: 24px;
+  }
+
+  .hero {
+    padding-top: 95px;
+    padding-bottom: 75px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    min-height: 210px;
+  }
+
+  .radio-section {
+    gap: 28px;
+  }
+}
+
+
+/* 14. Mobile */
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  .header-nav {
+    justify-content: center;
+    gap: 4px 20px;
+    min-height: 62px;
+    padding-block: 12px;
+  }
+
+  .header-nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 76px;
+    padding-bottom: 60px;
+  }
+
+  .hero::before {
+    top: 55px;
+    right: 2%;
+    opacity: 0.65;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 11vw, 62px);
+    letter-spacing: -0.06em;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-index {
+    margin-top: 40px;
+    font-size: 9px;
+  }
+
+  .projects-section {
+    padding: 60px 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-bottom: 24px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .project-card,
+  .project-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    min-height: 220px;
+    padding: 23px;
+  }
+
+  .radio-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+
+    padding: 60px 0;
+  }
+
+  .radio-info h2 {
+    font-size: 32px;
+  }
+
+  .radio-player {
+    padding: 6px;
+  }
+
+  .radio-player iframe {
+    height: 352px;
+  }
+
+  .closing-section {
+    padding: 70px 0;
+  }
+
+  .footer {
+    padding: 28px 18px;
+  }
+}
+
+
+/* 15. Small mobile */
+
+@media (max-width: 360px) {
+  .header-nav {
+    gap: 4px 14px;
+  }
+
+  .header-nav a {
+    font-size: 10px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .project-card h3 {
+    font-size: 20px;
+  }
+}
+
+
+/* 16. Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
